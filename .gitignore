@@ -1,3 +1,4 @@
 models/
 virtual_env/
 test_videos/
+__pycache__/
