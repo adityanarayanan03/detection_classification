@@ -16,7 +16,12 @@ if __name__ == "__main__":
 
     #Load the weights as a state dictionary, from specified file
     filename = 'models/ml_model_0'
-    state_dict = torch.load(filename, map_location=torch.device('cpu'))
+
+    if(torch.cuda.is_available()):
+        state_dict = torch.load(filename)
+    else:
+        state_dict = torch.load(filename, map_location=torch.device('cpu'))
+    
     model.load_state_dict(state_dict)
 
     #Put the model into inference mode
